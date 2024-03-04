@@ -2,10 +2,61 @@
 // Сніппет (HTML): btn
 
 .button {
+	position: relative;
 	display: inline-flex;
-	padding: 0px 0px;
+	padding: toRem(10) toRem(30);
+	font-size: toRem(16);
+	font-weight: 300;
+	line-height: 1.5;
+	text-transform: capitalize;
+	border: toRem(1) solid transparent;
+	border-radius: toRem(30);
+	color: $mainColor;
+	overflow: hidden;
+
+	&::after {
+		position: absolute;
+		content: "";
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: url("@img/button/background.png") center no-repeat;
+		opacity: 0.5;
+		transition: opacity 0.3s ease 0s;
+	}
+
+	span {
+		position: relative;
+		z-index: 2;
+	}
+
 	@media (any-hover: hover) {
 		&:hover {
+			&::after {
+				opacity: 1;
+			}
+		}
+	}
+	&--transparent {
+		color: $mustardColor;
+		border-color: $mustardColor;
+		transition: all 0.3s ease 0s;
+
+		&::after {
+			display: none;
+			transition: all 0.3s ease 0s;
+		}
+
+		@media (any-hover: hover) {
+			&:hover {
+				color: $mainColor;
+				border-color: transparent;
+
+				&::after {
+					display: block;
+				}
+			}
 		}
 	}
 	&--fw {

@@ -5,23 +5,28 @@
 	// .menu__body
 	&__body {
 		@media (max-width: $mobile) {
+			display: grid;
+			grid-template-rows: 1fr auto;
+			row-gap: toRem(30);
 			position: fixed;
 			width: 100%;
 			height: 100%;
 			left: -100%;
 			top: 0;
 			overflow: auto;
-			padding: toRem(50) toRem(15) toRem(15) toRem(30);
+			padding: toRem(150) toRem(15) toRem(15) toRem(30);
+			background-color: $mainColor;
 			transition: left 0.3s;
 			&::before {
 				content: "";
 				position: fixed;
 				width: 100%;
-				height: toRem(70);
+				height: toRem(80);
 				left: -100%;
 				top: 0;
 				transition: left 0.3s;
 				z-index: 2;
+				background-color: $mainColor;
 			}
 			.menu-open & {
 				left: 0;
@@ -67,7 +72,7 @@
 			position: absolute;
 			width: 100%;
 			height: toRem(2);
-			background-color: #000;
+			background-color: $mustardColor;
 		}
 		&::before {
 			top: 0;
