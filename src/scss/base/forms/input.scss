@@ -12,8 +12,6 @@ textarea {
 	border-radius: 0 !important;
 	width: 100%;
 	display: block;
-	padding: 0px 20px;
-	border: 1px solid #eee;
 	caret-color: inherit;
 	&._form-focus {
 	}
@@ -23,6 +21,7 @@ textarea {
 .input[placeholder]:not([data-placeholder-nohiden]) {
 	&::placeholder {
 		transition: opacity 0.3s;
+		color: $mustardColor;
 	}
 	&:focus::placeholder {
 		opacity: 0;

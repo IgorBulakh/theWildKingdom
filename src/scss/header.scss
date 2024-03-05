@@ -1,4 +1,9 @@
 .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 50;
   // .header__container
   &__container {
     display: grid;
@@ -21,11 +26,8 @@
   // .header__logo
   &__logo {
     position: relative;
-    @include adaptiveValue("font-size", 32, 28);
-    text-align: center;
     max-width: toRem(150);
-    font-family: "Italiana";
-    text-transform: uppercase;
+    @include adaptiveValue("font-size", 32, 28);
     z-index: 2;
   }
   // .header__active
