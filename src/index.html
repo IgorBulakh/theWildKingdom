@@ -8,6 +8,28 @@
 	<div class="wrapper">
 		@@include('html/_header.htm',{})
 		<main class="page">
+			<section class="page__hero hero">
+				<div class="hero__container">
+					<div class="hero__content">
+						<h1 class="hero__title">A better world for pets</h1>
+						<a class="hero__button button button--transparent" href="#"><span>explore</span></a>
+					</div>
+					<div class="hero__slider swiper">
+						<div class="hero__wrapper swiper-wrapper">
+							<div class="hero__slide slide-hero swiper-slide">
+								<div class="slide-hero__body">
+									<img class="slide-hero__image" src="@img/dogs/colors-cat.jpg" alt="dog">
+								</div>
+							</div>
+						</div>
+						<div class="hero__control">
+							<button class="hero__arrow hero__arrow--left _icon-arrow" type="button"></button>
+							<button class="hero__arrow hero__arrow--right _icon-arrow" type="button"></button>
+						</div>
+					</div>
+				</div>
+				<img class="hero__bg" src="@img/button/hero-bg.jpg" alt="fonts brown">
+			</section>
 			<!-- @@include('html/_common.htm',{}) -->
 		</main>
 		@@include('html/_footer.htm',{})
