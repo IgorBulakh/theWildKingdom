@@ -8,7 +8,7 @@
 // При необхідності підключаємо додаткові модулі слайдера, вказуючи їх у {} через кому
 // Приклад: { Navigation, Autoplay }
 import Swiper from "swiper";
-import { Navigation } from "swiper/modules";
+import { Navigation, Controller, Parallax } from "swiper/modules";
 /*
 Основні модулі слайдера:
 Navigation, Pagination, Autoplay, 
@@ -31,15 +31,17 @@ function initSliders() {
   if (document.querySelector(".hero__slider")) {
     // Вказуємо склас потрібного слайдера
     // Створюємо слайдер
-    new Swiper(".hero__slider", {
+    const mainSlider = new Swiper(".hero__slider", {
       // Вказуємо склас потрібного слайдера
       // Підключаємо модулі слайдера
       // для конкретного випадку
-      modules: [Navigation],
+      modules: [Navigation, Controller, Parallax],
       observer: true,
       observeParents: true,
-      slidesPerView: 1,
-      spaceBetween: 0,
+      parallax: true,
+      slidesPerView: 2,
+      loop: true,
+      spaceBetween: 30,
       //autoHeight: true,
       speed: 800,
 
@@ -79,31 +81,102 @@ function initSliders() {
         prevEl: ".hero__arrow--left",
         nextEl: ".hero__arrow--right",
       },
-      /*
-			// Брейкпоінти
-			breakpoints: {
-				640: {
-					slidesPerView: 1,
-					spaceBetween: 0,
-					autoHeight: true,
-				},
-				768: {
-					slidesPerView: 2,
-					spaceBetween: 20,
-				},
-				992: {
-					slidesPerView: 3,
-					spaceBetween: 20,
-				},
-				1268: {
-					slidesPerView: 4,
-					spaceBetween: 30,
-				},
-			},
-			*/
+
+      // Брейкпоінти
+      breakpoints: {
+        320: {
+          slidesPerView: 2,
+          spaceBetween: 0,
+          autoHeight: true,
+          centeredSlides: true,
+        },
+
+        992: {
+          centeredSlides: false,
+        },
+      },
+
       // Події
       on: {},
     });
+
+    // const miniSlider = new Swiper(".hero__mini-slider", {
+    //   // Вказуємо склас потрібного слайдера
+    //   // Підключаємо модулі слайдера
+    //   // для конкретного випадку
+    //   modules: [Navigation, Controller],
+    //   observer: true,
+    //   observeParents: true,
+    //   slidesPerView: 2,
+    //   slideToClickedSlide: true,
+    //   spaceBetween: 20,
+    //   //autoHeight: true,
+    //   speed: 800,
+
+    //   //touchRatio: 0,
+    //   //simulateTouch: false,
+    //   //loop: true,
+    //   //preloadImages: false,
+    //   //lazy: true,
+
+    //   /*
+    // 	// Ефекти
+    // 	effect: 'fade',
+    // 	autoplay: {
+    // 		delay: 3000,
+    // 		disableOnInteraction: false,
+    // 	},
+    // 	*/
+
+    //   // Пагінація
+    //   /*
+    // 	pagination: {
+    // 		el: '.swiper-pagination',
+    // 		clickable: true,
+    // 	},
+    // 	*/
+
+    //   // Скроллбар
+    //   /*
+    // 	scrollbar: {
+    // 		el: '.swiper-scrollbar',
+    // 		draggable: true,
+    // 	},
+    // 	*/
+
+    //   // Кнопки "вліво/вправо"
+    //   // navigation: {
+    //   //   prevEl: ".hero__arrow--left",
+    //   //   nextEl: ".hero__arrow--right",
+    //   // },
+    //   /*
+    // 	// Брейкпоінти
+    // 	breakpoints: {
+    // 		640: {
+    // 			slidesPerView: 1,
+    // 			spaceBetween: 0,
+    // 			autoHeight: true,
+    // 		},
+    // 		768: {
+    // 			slidesPerView: 2,
+    // 			spaceBetween: 20,
+    // 		},
+    // 		992: {
+    // 			slidesPerView: 3,
+    // 			spaceBetween: 20,
+    // 		},
+    // 		1268: {
+    // 			slidesPerView: 4,
+    // 			spaceBetween: 30,
+    // 		},
+    // 	},
+    // 	*/
+    //   // Події
+    //   on: {},
+    // });
+
+    // mainSlider.controller.control = mainSlider;
+    // miniSlider.controller.control = mainSlider;
   }
 }
 // Скролл на базі слайдера (за класом swiper scroll для оболонки слайдера)
