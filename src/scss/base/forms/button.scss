@@ -14,7 +14,7 @@
 	color: $mainColor;
 	overflow: hidden;
 
-	&::after {
+	&::before {
 		position: absolute;
 		content: "";
 		top: 0;
@@ -22,19 +22,32 @@
 		width: 100%;
 		height: 100%;
 		background: url("@img/button/background.png") center no-repeat;
+		// opacity: 0.5;
+		// transition: opacity 0.3s ease 0s;
+	}
+
+	&::after {
+		position: absolute;
+		content: "";
+		background-color: #fff;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
 		opacity: 0.5;
 		transition: opacity 0.3s ease 0s;
 	}
 
 	span {
 		position: relative;
+		flex: 0 0 auto;
 		z-index: 2;
 	}
 
 	@media (any-hover: hover) {
 		&:hover {
 			&::after {
-				opacity: 1;
+				opacity: 0;
 			}
 		}
 	}
@@ -43,9 +56,13 @@
 		border-color: $mustardColor;
 		transition: all 0.3s ease 0s;
 
-		&::after {
+		&::before {
 			display: none;
 			transition: all 0.3s ease 0s;
+		}
+
+		&::after {
+			opacity: 0;
 		}
 
 		@media (any-hover: hover) {
@@ -53,7 +70,7 @@
 				color: $mainColor;
 				border-color: transparent;
 
-				&::after {
+				&::before {
 					display: block;
 				}
 			}

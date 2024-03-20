@@ -19,6 +19,10 @@
     padding-bottom: toRem(10);
     color: $mustardColor;
 
+    ._header-scroll & {
+      min-height: toRem(80);
+    }
+
     @media (max-width: $mobile) {
       grid-template-columns: 1fr auto auto;
     }
